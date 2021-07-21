@@ -5,6 +5,8 @@ import { Provider as ReduxProvider } from "react-redux";
 import store from "./redux/store";
 import PostsPage from "./containers/PostsPage";
 import Header from './components/Header'
+import Home from './components/Home'
+import LogIn from './components/LogIn'
 
 
 const useStyles = makeStyles((_) => ({
@@ -21,14 +23,19 @@ function App() {
       <Router>
         <Header />
           <Switch>
+            
             <Route path="/posts">
               <PostsPage />
             </Route>
-            <Route path="/">
-              <h1 style={{textAlign: "center"}}>Welcome to my App. It is currently under construction!</h1>
-              <h2 style={{textAlign: "center"}}>View all Posts is the only working link at the moment.</h2>
-
+            
+            <Route exact path="/">
+              <Home/>
             </Route>
+          
+          <Route path="/login">
+            <LogIn />
+          </Route>
+          
           </Switch>
           
       </Router>

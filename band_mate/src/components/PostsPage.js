@@ -26,9 +26,9 @@ function PostsPage(props) {
 
                 <Grid justifyContent="left" item xs zeroMinWidth>
                   <h1 style={{ margin: 0, textAlign: "left" }}>{posts.user_name}</h1>
-                  <Chip label={`${posts.post_type}`} variant="outlined" />
-                  <Chip label={`Genre: ${posts.genre}`} variant="outlined" />
-                  <Chip label={`Instrument: ${posts.instrument}`} variant="outlined" />
+                  <Chip style={{backgroundColor: "#dce775"}} label={`${posts.post_type}`} />
+                  <Chip style={{backgroundColor: "#dce775"}} label={`Genre: ${posts.genre}`} />
+                  <Chip style={{backgroundColor: "#dce775"}} label={`Instrument: ${posts.instrument}`} />
                   <h2>{posts.post_title}</h2>
                   <p style={{ textAlign: "left", paddingRight: "10pt" }}>
                     {posts.post_detail}

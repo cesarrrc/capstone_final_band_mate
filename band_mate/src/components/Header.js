@@ -24,7 +24,7 @@ function Header() {
 
   return (
 
-          <AppBar position="static">
+          <AppBar position="static" color="#e0e0e0">
             <Toolbar>
               
               <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
