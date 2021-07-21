@@ -1,0 +1,39 @@
+import { makeStyles } from "@material-ui/core/styles"
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
+import { Provider as ReduxProvider } from "react-redux";
+
+import store from "./redux/store";
+import PostsPage from "./containers/PostsPage";
+import Header from './components/Header'
+
+
+const useStyles = makeStyles((_) => ({
+  root: {
+    flexGrow: 1,
+  },
+}));
+
+function App() {
+  const classes = useStyles();
+
+  return (
+    <ReduxProvider store={store}>
+      <Router>
+        <Header />
+          <Switch>
+            <Route path="/posts">
+              <PostsPage />
+            </Route>
+            <Route path="/">
+              <h1 style={{textAlign: "center"}}>Welcome to my App. It is currently under construction!</h1>
+              <h2 style={{textAlign: "center"}}>View all Posts is the only working link at the moment.</h2>
+
+            </Route>
+          </Switch>
+          
+      </Router>
+    </ReduxProvider>
+  );
+}
+
+export default App;
