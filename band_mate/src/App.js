@@ -4,9 +4,15 @@ import { Provider as ReduxProvider } from "react-redux";
 
 import store from "./redux/store";
 import PostsPage from "./containers/PostsPage";
+import AddPostPage from "./containers/AddPostPage";
+import UsersPage from "./containers/UsersPage";
+import AddUserPage from "./containers/AddUserPage";
+
+
 import Header from './components/Header'
 import Home from './components/Home'
 import LogIn from './components/LogIn'
+
 
 
 const useStyles = makeStyles((_) => ({
@@ -24,17 +30,29 @@ function App() {
         <Header />
           <Switch>
             
-            <Route path="/posts">
-              <PostsPage />
-            </Route>
-            
             <Route exact path="/">
               <Home/>
             </Route>
+            
+            <Route path="/posts">
+              <PostsPage />
+            </Route>
           
-          <Route path="/login">
-            <LogIn />
-          </Route>
+            <Route path="/add-post">
+              <AddPostPage />
+            </Route>
+
+            <Route path="/login">
+              <LogIn />
+            </Route>
+
+            <Route path="/add-user">
+              <AddUserPage />
+            </Route>
+
+            <Route path="/users">
+              <UsersPage />
+            </Route>
           
           </Switch>
           

@@ -16,3 +16,19 @@ export function loadPostsSuccess(posts) {
     posts,
   }
 }
+
+export function createPost(post) {
+  return function (dispatch) {
+    return postsApi
+      .createPost(post)
+      .then((newPost) => dispatch(createPostSuccess(newPost)))
+      .catch((error) => console.log(error))
+  }
+}
+
+export function createPostSuccess(post) {
+  return {
+    type: ActionTypes.CREATE_POST,
+    post
+  }
+}

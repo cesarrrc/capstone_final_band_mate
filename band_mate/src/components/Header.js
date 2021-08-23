@@ -36,7 +36,11 @@ function Header() {
               </Typography>
               <Button color="inherit" component={Link} to={"/"}>Home</Button>
               <Button color="inherit" component={Link} to={"/posts"}>View all Posts</Button>
+              <Button color="inherit" component={Link} to={"/add-post"}>Add a Post</Button>
+              <Button color="inherit" component={Link} to={"/users"}>View all Users</Button>
               <Button color="inherit" component={Link} to={"/login"}>Login</Button>
+              <Button color="inherit" component={Link} to={"/add-user"}>Register</Button>
+
             </Toolbar>
           </AppBar>
          
