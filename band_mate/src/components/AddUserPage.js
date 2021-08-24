@@ -29,6 +29,8 @@ const AddUserPage = (props) => {
   const classes = useStyles();
   let history = useHistory();
   
+  const [error, setError] = useState("");
+
   const[ user, setUser ] = useState({
     user_name: "",
     first_name: "",
@@ -53,7 +55,10 @@ const AddUserPage = (props) => {
   function handleFormSubmit(e) {
     e.preventDefault();
 
-    props.createUser(user).then(() => history.push("/users"))
+    props
+      .createUser(user)
+      .then(() => history.push("/add-instrument"))
+      .catch((error) => setError(error))
   }
 
   return (
@@ -114,6 +119,7 @@ const AddUserPage = (props) => {
               required
               className={classes.textField}
               fullWidth
+              type="tel"
               name="mobile_number"
               label="Phone Number"
               variant="outlined"
@@ -125,6 +131,7 @@ const AddUserPage = (props) => {
               required
               className={classes.textField}
               fullWidth
+              type="password"
               name="password"
               label="Create a Password"
               variant="outlined"
@@ -136,6 +143,7 @@ const AddUserPage = (props) => {
               required
               className={classes.textField}
               fullWidth
+              type="password"
               name="confirm_password"
               label="Confirm Password"
               variant="outlined"

@@ -11,3 +11,23 @@ export function handleError(error) {
   console.error(`API call failed: ${error}`);
   throw error;
 }
+
+export function storeTokenOnLocalStorage(response) {
+  localStorage.setItem("token", response.token);
+
+  response.name = "Cesar Cisneros";
+
+  delete response.token;
+
+  return response;
+}
+
+export function getHeaders() {
+  const token = localStorage.getItem("token");
+  const headers = new Headers();
+
+  headers.append("content-type", "application/json");
+  headers.append("authorization", `Bearer ${token}`);
+
+  return headers;
+}

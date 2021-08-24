@@ -1,6 +1,22 @@
 import * as ActionTypes from "../actions/actionTypes";
 import * as usersApi from "../../api/usersApi"
 
+export function loginUser(user) {
+  return function (dispatch) {
+    return usersApi
+      .login(user)
+      .then((newUser) => dispatch(loginUserSuccess(newUser)))
+      .catch((error) => console.log(error));
+  };
+}
+
+export function loginUserSuccess(user) {
+  return {
+    type: ActionTypes.LOGIN_USER_SUCCESS,
+    user
+  };
+}
+
 export function loadUsers() {
   return function (dispatch) {
     return usersApi

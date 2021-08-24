@@ -7,11 +7,11 @@ import PostsPage from "./containers/PostsPage";
 import AddPostPage from "./containers/AddPostPage";
 import UsersPage from "./containers/UsersPage";
 import AddUserPage from "./containers/AddUserPage";
-
+import LoginPage from "./containers/LoginPage";
 
 import Header from './components/Header'
 import Home from './components/Home'
-import LogIn from './components/LogIn'
+import AddInstrumentPage from "./components/AddInstrumentPage";
 
 
 
@@ -43,7 +43,7 @@ function App() {
             </Route>
 
             <Route path="/login">
-              <LogIn />
+              <LoginPage />
             </Route>
 
             <Route path="/add-user">
@@ -52,6 +52,10 @@ function App() {
 
             <Route path="/users">
               <UsersPage />
+            </Route>
+            
+            <Route path="/add-instrument">
+              <AddInstrumentPage />
             </Route>
           
           </Switch>

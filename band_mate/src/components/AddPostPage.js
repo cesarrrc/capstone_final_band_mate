@@ -15,19 +15,23 @@ const useStyles = makeStyles({
   },
   title: {
     marginBottom: 8,
+    textAlign: "center"
   },
   textField: {
     display: "block",
     marginBottom: 20,
   },
   button: {
-    marginRight: 20,
+    margin: "auto 20px auto 20px",
+    width: "100px"
   },
 });
+
 
 function AddPostPage(props) {
   const classes = useStyles();
   let history = useHistory();
+  
   const [post, setPost] = useState({ user_id: "", instrument_id: "", genre_id: "", post_type: "", post_title: "", post_detail: "" });
 
   function handleInputChanges(event) {
@@ -54,63 +58,76 @@ function AddPostPage(props) {
         <TextField
           required
           className={classes.textField}
-          fullWidth
           name="user_id"
           label="User ID"
           variant="outlined"
           value={post.user_id}
           onChange={handleInputChanges}
-        />
-        <TextField
-          required
-          className={classes.textField}
-          fullWidth
-          name="instrument_id"
-          label="Instrument ID"
-          variant="outlined"
-          value={post.instrument_id}
-          onChange={handleInputChanges}
-        />
-        {/* <TextField
-          className={classes.textField}
-          fullWidth
-          name="genre_id"
-          label="Genre"
-          variant="outlined"
-          value={post.genre_id}
-          onChange={handleInputChanges}
-        /> */}
+          />
 
-        <TextField
-          required
-          select
-          name="genre_id"
-          label="Genre"
-          value={post.genre_id}
-          helperText="Please select your Genre"
-          onChange={handleInputChanges}
-        >
-          { props.genres.map((genre) => (
-            <MenuItem key={genre.id} value={genre.id}>
-              {genre.name}
-            </MenuItem>
-          ))}
-        </TextField>
+        <div style={
+          {
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-around",
+            marginBottom: "20px"
+            }}>
+        
+          <TextField
+            required
+            select
+            name="instrument_id"
+            label="Instrument"
+            value={post.instrument_id}
+            helperText="Select an Instrument"
+            onChange={handleInputChanges}
+            >
+            { props.instruments.map((instrument) => (
+              <MenuItem key={instrument.id} value={instrument.id}>
+                {instrument.name}
+              </MenuItem>
+            ))}
+          </TextField>
+      
 
+          <TextField
+            required
+            select
+            name="genre_id"
+            label="Genre"
+            value={post.genre_id}
+            helperText="Select a Genre"
+            onChange={handleInputChanges}
+            >
+            { props.genres.map((genre) => (
+              <MenuItem key={genre.id} value={genre.id}>
+                {genre.name}
+              </MenuItem>
+            ))}
+          </TextField>
+
+          <TextField
+            required
+            select
+            name="post_type"
+            label="Post-Type"
+            value={post.post_type}
+            helperText="Select a Category"
+            onChange={handleInputChanges}
+            >
+            { props.postType.map((category) => (
+              <MenuItem key={category.id} value={category.id}>
+                {category.name}
+              </MenuItem>
+            ))}
+          </TextField>
+
+        </div>
+          
         <TextField
+          fullWidth
           required
           className={classes.textField}
-          fullWidth
-          name="post_type"
-          label="Post Type"
-          variant="outlined"
-          value={post.post_type}
-          onChange={handleInputChanges}
-        />
-        <TextField
-          required
-          className={classes.textField}
-          fullWidth
           name="post_title"
           label="Title"
           variant="outlined"
@@ -121,13 +138,22 @@ function AddPostPage(props) {
           required
           className={classes.textField}
           fullWidth
+          multiline
+          rows={2}
+          rowsMax={4}
           name="post_detail"
           label="Post Detail"
           variant="outlined"
           value={post.post_detail}
           onChange={handleInputChanges}
         />
-        <div>
+        <div style={
+          {
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center"
+            }}>
+
           <Button
             required
             className={classes.button}
@@ -137,7 +163,12 @@ function AddPostPage(props) {
           >
             Add
           </Button>
-          <Button variant="outlined" component={Link} to={"/posts"}>
+          <Button 
+            variant="contained" 
+            className={classes.button} 
+            color="secondary"
+            component={Link} to={"/posts"}
+            >
             Cancel
           </Button>
         </div>

@@ -1,8 +1,21 @@
-import { handleResponse, handleError  } from "./apiUtils";
+import { handleResponse, handleError, storeTokenOnLocalStorage  } from "./apiUtils";
 
 const usersUrl = "https://band-mate-app.herokuapp.com/users"
 
-const createUserUrl = "https://band-mate-app.herokuapp.com/createUser"
+const createUserUrl = "https://band-mate-app.herokuapp.com/createUser";
+
+const LoginUserUrl = "https://band-mate-app.herokuapp.com/login";
+
+export function login(user) {
+  return fetch(LoginUserUrl, {
+    method: "POST",
+    headers: { "contnet-type": "application/json" },
+    body: JSON.stringify(user)
+  })
+  .then(handleResponse)
+  .then(storeTokenOnLocalStorage)
+  .catch(handleError)
+}
 
 export function getUsers() {
   return fetch(usersUrl)
