@@ -28,7 +28,7 @@ function UsersPage(props) {
       {props.users.map((user, index) => (
         <Paper key={index} p={2} style={{ maxWidth: '400pt', justifyContent: "center", margin:"20px auto 20px auto" }}>
             <Box bgcolor="#b9f6ca" color="#212121" p={2}>
-            
+              {console.log(user)}
               <Grid container wrap="nowrap" spacing={2}>
                 <Grid item>
                   <Avatar src={imgLink} />

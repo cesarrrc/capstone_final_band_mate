@@ -1,4 +1,5 @@
-import { handleResponse, handleError  } from "./apiUtils";
+import { handleResponse, handleError, getHeaders  } from "./apiUtils";
+
 
 const postsUrl = "https://band-mate-app.herokuapp.com/posts"
 
@@ -11,7 +12,7 @@ export function getPosts() {
 export function createPost(post) {
   return fetch(postsUrl, {
     method: "POST",
-    headers: { "content-type": "application/json" },
+    headers: getHeaders(),
     body: JSON.stringify(post)
   })
   .then(handleResponse)

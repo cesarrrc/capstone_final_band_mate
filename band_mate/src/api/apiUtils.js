@@ -13,13 +13,13 @@ export function handleError(error) {
 }
 
 export function storeTokenOnLocalStorage(response) {
-  localStorage.setItem("token", response.token);
+  localStorage.setItem("token", response.accessToken);
 
-  response.name = "Cesar Cisneros";
 
-  delete response.token;
 
-  return response;
+ delete response.accessToken;
+
+  return response; //--> {userName}
 }
 
 export function getHeaders() {
