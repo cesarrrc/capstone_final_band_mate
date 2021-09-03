@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import {  Avatar, Grid, Paper, Box, CardActions, Typography, CardContent, Collapse } from "@material-ui/core";
+import {  Avatar, Grid, Paper, Box, CardActions, CardContent, Collapse } from "@material-ui/core";
 import Chip from '@material-ui/core/Chip';
 import moment from 'moment'
 import clsx from 'clsx';

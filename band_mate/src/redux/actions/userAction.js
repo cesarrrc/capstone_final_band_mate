@@ -48,3 +48,35 @@ export function createUserSuccess(user) {
     user
   }
 }
+
+export function createInstrument(instrument) {
+  return function (dispatch) {
+    return usersApi
+      .addInstrument(instrument)
+      .then((newInstrument) => dispatch(createInstrumentSuccess(newInstrument)))
+      .catch((error) => console.log(error))
+  }
+}
+
+export function createInstrumentSuccess(instrument) {
+  return {
+    type: ActionTypes.CREATE_INSTRUMENT,
+    instrument
+  }
+}
+
+export function createGenre(genre) {
+  return function (dispatch) {
+    return usersApi
+      .addGenre(genre)
+      .then((newGenre) => dispatch(createGenreSuccess(newGenre)))
+      .catch((error) => console.log(error))
+  }
+}
+
+export function createGenreSuccess(genre) {
+  return {
+    type: ActionTypes.CREATE_GENRE,
+    genre
+  }
+}

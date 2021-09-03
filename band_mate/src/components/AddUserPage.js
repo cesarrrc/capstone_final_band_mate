@@ -5,7 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { Link, useHistory } from "react-router-dom";
-import MenuItem from '@material-ui/core/MenuItem';
+// import MuiPhoneNumber from 'material-ui-phone-number';
 
 const useStyles = makeStyles({
   paper: {
@@ -29,9 +29,9 @@ const AddUserPage = (props) => {
   const classes = useStyles();
   let history = useHistory();
   
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
 
-  const[ user, setUser ] = useState({
+  const [ user, setUser ] = useState({
     user_name: "",
     first_name: "",
     last_name: "",
@@ -58,7 +58,7 @@ const AddUserPage = (props) => {
     props
       .createUser(user)
       .then(() => history.push("/add-instrument"))
-      .catch((error) => setError(error))
+      // .catch((error) => setError(error))
   }
 
   return (
@@ -119,13 +119,24 @@ const AddUserPage = (props) => {
               required
               className={classes.textField}
               fullWidth
-              type="tel"
               name="mobile_number"
               label="Phone Number"
               variant="outlined"
               value={user.mobile_number}
               onChange={handleInputChanges}
             />
+
+            {/* <MuiPhoneNumber
+              required
+              className={classes.textField}
+              fullWidth
+              name="mobile_number"
+              label="Phone Number"
+              variant="outlined"
+              defaultCountry={'us'}
+              value={user.mobile_number}
+              onChange={handleInputChanges}
+            /> */}
               
             <TextField
               required

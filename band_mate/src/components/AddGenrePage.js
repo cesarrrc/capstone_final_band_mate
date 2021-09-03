@@ -30,20 +30,20 @@ const useStyles = makeStyles({
   }
 });
 
-const AddInstrumentPage = (props) => {
+const AddGenrePage = (props) => {
   
   const classes = useStyles();
   
   let history = useHistory();
 
-  const [instrument, setInstrument] = useState({ user_id: "", instrument_id: ""});
+  const [genre, setGenre] = useState({ user_id: "", genre_id: ""});
 
 
   function handleInputChanges(event) {
     const { name, value } = event.target;
 
-    setInstrument((previousInstrument) => ({
-      ...previousInstrument,
+    setGenre((previousGenre) => ({
+      ...previousGenre,
       [name]: value,
     }));
   }
@@ -52,14 +52,14 @@ const AddInstrumentPage = (props) => {
     e.preventDefault();
 
     props
-      .createInstrument(instrument)
-      .then(() => history.push("/add-instrument"))
+      .createGenre(genre)
+      .then(() => history.push("/add-genre"))
   }
 
   return (
     <Paper className={classes.paper}>
       <Typography className={classes.title} variant="h5">
-        What instrument do you play?
+        What genres do you typically play?
       </Typography>
       <form onSubmit={handleFormSubmit}>
         <TextField
@@ -74,16 +74,16 @@ const AddInstrumentPage = (props) => {
         <TextField
               required
               select
-              name="instrument_id"
-              label="Instrument"
-              value={instrument.instrument_id}
-              helperText="Select an Instrument"
+              name="genre_id"
+              label="Genre"
+              value={genre.genre_id}
+              helperText="Select a Genre"
               className={classes.select}
               onChange={handleInputChanges}
               >
-              { props.instruments.map((i) => (
-                <MenuItem key={i.id} value={i.id}>
-                  {i.name}
+              { props.genres.map((g) => (
+                <MenuItem key={g.id} value={g.id}>
+                  {g.name}
                 </MenuItem>
               ))}
         </TextField>
@@ -110,9 +110,9 @@ const AddInstrumentPage = (props) => {
             variant="contained" 
             className={classes.button} 
             color="secondary"
-            component={Link} to={"/add-genre"}
+            component={Link} to={"/users"}
             >
-            Add Genres
+            Done
           </Button>
         </div>
       </form>
@@ -120,4 +120,4 @@ const AddInstrumentPage = (props) => {
   );
 }
 
-export default AddInstrumentPage;
+export default AddGenrePage;

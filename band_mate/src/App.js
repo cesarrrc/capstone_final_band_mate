@@ -1,5 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles"
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import { Provider as ReduxProvider } from "react-redux";
 
 import store from "./redux/store";
@@ -8,22 +7,14 @@ import AddPostPage from "./containers/AddPostPage";
 import UsersPage from "./containers/UsersPage";
 import AddUserPage from "./containers/AddUserPage";
 import LoginPage from "./containers/LoginPage";
+import AddInstrumentPage from "./containers/AddInstrumentPage";
+import AddGenrePage from "./containers/AddGenrePage";
+
 
 import Header from './components/Header'
 import Home from './components/Home'
-import AddInstrumentPage from "./components/AddInstrumentPage";
-
-
-
-const useStyles = makeStyles((_) => ({
-  root: {
-    flexGrow: 1,
-  },
-}));
 
 function App() {
-  const classes = useStyles();
-
   return (
     <ReduxProvider store={store}>
       <Router>
@@ -57,7 +48,10 @@ function App() {
             <Route path="/add-instrument">
               <AddInstrumentPage />
             </Route>
-          
+
+            <Route path="/add-genre">
+              <AddGenrePage />
+            </Route>
           </Switch>
           
       </Router>

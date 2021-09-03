@@ -32,7 +32,7 @@ function AddPostPage(props) {
   const classes = useStyles();
   let history = useHistory();
   
-  const [post, setPost] = useState({ instrument_id: "", genre_id: "", post_type: "", post_title: "", post_detail: "" });
+  const [post, setPost] = useState({ instrument_id: "1", genre_id: "1", post_type: "", post_title: "", post_detail: "" });
 
   function handleInputChanges(event) {
     const { name, value } = event.target;
@@ -55,15 +55,6 @@ function AddPostPage(props) {
         Add a new post
       </Typography>
       <form onSubmit={handleFormSubmit}>
-        {/* <TextField
-          required
-          className={classes.textField}
-          name="user_id"
-          label="User ID"
-          variant="outlined"
-          value={post.user_id}
-          onChange={handleInputChanges}
-          /> */}
 
         <div style={
           {
