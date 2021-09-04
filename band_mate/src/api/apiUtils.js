@@ -25,7 +25,7 @@ export function storeTokenOnLocalStorage(response) {
 export function getHeaders() {
   const token = localStorage.getItem("token");
   const headers = new Headers();
-
+  console.log(token)
   headers.append("content-type", "application/json");
   headers.append("authorization", `Bearer ${token}`);
 
