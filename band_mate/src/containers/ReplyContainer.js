@@ -1,17 +1,16 @@
 import { connect } from "react-redux";
 import PostsPage from "../components/PostsPage"
-import { loadPosts } from "../redux/actions/postAction"
+import {createReply} from '../redux/actions/replyAction'
 
 function mapStateToProps(state) {
 
   return {
-    posts: state.posts,
     reply: state.reply
   } 
 }
 
 const dispatchStateToProps = {
-  loadPosts,
+  createReply
 }
 
 export default connect(mapStateToProps, dispatchStateToProps)(PostsPage)

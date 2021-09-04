@@ -6,7 +6,7 @@ export function loginUser(user) {
     return usersApi
       .login(user)
       .then((newUser) => dispatch(loginUserSuccess(newUser)))
-      .catch((error) => console.log(error));
+      // .catch((error) => error);
   };
 }
 
@@ -22,7 +22,7 @@ export function loadUsers() {
     return usersApi
       .getUsers()
       .then((usersFromApi) => dispatch(loadUsersSuccess(usersFromApi)))
-      .catch((error) => console.log(error));
+      .catch((error) => {console.log(error)});
   };
 }
 

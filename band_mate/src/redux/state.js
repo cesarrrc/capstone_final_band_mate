@@ -1,4 +1,6 @@
 export default {
   posts: [],
-  users: []
+  users: [],
+  user: {},
+  reply:{}
 }

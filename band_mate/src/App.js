@@ -9,6 +9,7 @@ import AddUserPage from "./containers/AddUserPage";
 import LoginPage from "./containers/LoginPage";
 import AddInstrumentPage from "./containers/AddInstrumentPage";
 import AddGenrePage from "./containers/AddGenrePage";
+import ReplyContainer from "./containers/ReplyContainer";
 
 
 import Header from './components/Header'

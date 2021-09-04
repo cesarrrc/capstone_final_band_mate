@@ -1,17 +1,9 @@
 import { handleResponse, handleError, storeTokenOnLocalStorage, getHeaders  } from "./apiUtils";
 
-const LoginUserUrl = "https://band-mate-app.herokuapp.com/login";
-
-const createUserUrl = "https://band-mate-app.herokuapp.com/createUser";
-
-const addUserInstrumentUrl = "https://band-mate-app.herokuapp.com/addInstrument";
-
-const addUserGenreUrl = "https://band-mate-app.herokuapp.com/addGenre";
-
-const usersUrl = "https://band-mate-app.herokuapp.com/users";
+const url = "https://band-mate-app.herokuapp.com"
 
 export function login(user) {
-  return fetch(LoginUserUrl, {
+  return fetch(`${url}/login`, {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(user)
@@ -22,7 +14,7 @@ export function login(user) {
 }
 
 export function createUser(user) {
-  return fetch(createUserUrl, {
+  return fetch(`${url}/createUser`, {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(user)
@@ -33,7 +25,7 @@ export function createUser(user) {
 }
 
 export function addInstrument(instrument) {
-  return fetch(addUserInstrumentUrl, {
+  return fetch(`${url}/addInstrument`, {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(instrument)
@@ -43,7 +35,7 @@ export function addInstrument(instrument) {
 }
 
 export function addGenre(genre) {
-  return fetch(addUserGenreUrl, {
+  return fetch(`${url}/addGenre`, {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(genre)
@@ -53,7 +45,7 @@ export function addGenre(genre) {
 }
 
 export function getUsers() {
-  return fetch(usersUrl, {
+  return fetch(`${url}/users`, {
     headers: getHeaders()
   })
     .then(handleResponse)

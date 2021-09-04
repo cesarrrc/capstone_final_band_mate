@@ -1,6 +1,6 @@
 export async function handleResponse(response) {
   if (response.ok) return response.json();
-  if (response.status === 400) {
+  if (response.status === 401) {
     const error = await response.text();
     throw new Error(error);
   }
@@ -8,7 +8,7 @@ export async function handleResponse(response) {
 }
 
 export function handleError(error) {
-  console.error(`API call failed: ${error}`);
+  console.error(`API call failed: ${error.message}`);
   throw error;
 }
 

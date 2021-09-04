@@ -47,7 +47,7 @@ const LoginPage = (props) => {
     props
       .loginUser(user)
       .then(() => history.push("/"))
-      .catch((error) => setError(error));
+      .catch((error) => setError(error.message));
   }
 
   return (
