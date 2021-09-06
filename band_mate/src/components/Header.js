@@ -8,6 +8,8 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { useHistory } from "react-router";
 import logo from '../images/logo.png'
+import '../App.css';
+
 
 function Header(props) {
   const history = useHistory()
@@ -33,7 +35,6 @@ function Header(props) {
           display:"grid",
           gridTemplateColumns:"1fr 1fr 1fr",
           margin:"auto",
-          marginBottom:"40px",
         }}>
 
         <div
@@ -76,13 +77,9 @@ function Header(props) {
 
           </Menu>
 
-          <Typography variant="h6" 
-            style={{
-              margin: "auto",
-            }}
-          >
-              MyBandMate
-          </Typography>
+          <p className="headerTitle">
+              MyBand
+          </p>
         </div>
 
         <div>
@@ -104,12 +101,12 @@ function Header(props) {
                 width: "auto",
                 flexDirection:"column",
                 alignItems:"flex-end",
-                margin:"0 auto 0 auto",
+                margin:"0",
                 padding:"0"
               }}
             >
-              <Button color="inherit" component={Link} to={"/login"}>Login</Button>
-              <Button color="inherit" component={Link} to={"/add-user"}>Register</Button>
+              <Button stlye={{padding:"0"}} color="inherit" component={Link} to={"/login"}>Login</Button>
+              <Button stlye={{padding:"0"}} color="inherit" component={Link} to={"/add-user"}>Register</Button>
             
             </div>
           }
@@ -120,9 +117,10 @@ function Header(props) {
                 display:"flex",
                 height:"80px",
                 justifyContent:"flex-end",
+                padding: "0"
               }}
             >
-              <Button color="inherit" component={Link} to={"/login"} 
+              <Button stlye={{padding:"0"}} color="inherit" component={Link} to={"/login"} 
                onClick={() => {
                   localStorage.clear()
                   history.push('/login')

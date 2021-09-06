@@ -9,9 +9,9 @@ import AddUserPage from "./containers/AddUserPage";
 import LoginPage from "./containers/LoginPage";
 import AddInstrumentPage from "./containers/AddInstrumentPage";
 import AddGenrePage from "./containers/AddGenrePage";
+import Home from './containers/HomePage'
 
 import Header from './components/Header'
-import Home from './components/Home'
 
 function App() {
   return (

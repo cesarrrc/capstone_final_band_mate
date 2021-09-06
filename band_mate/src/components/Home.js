@@ -1,13 +1,26 @@
 import React from 'react';
 import Box from '@material-ui/core/Box'
+import bandPlaying from '../images/bandPlaying.png'
+import '../App.css';
+import LoginPage from './LoginPage';
 
-const Home = () => {
+const Home = (props) => {
   return (
     <div>
-      <Box bgcolor="#212121" color="#9e9e9e" p={2}>
-        <h1 style={{textAlign: "center"}}>Welcome to my App. It is currently under construction!</h1>
-        <h2 style={{textAlign: "center"}}>View all Posts is the only working link at the moment.</h2>
-      </Box>
+
+      <div style={{backgroundColor:"white", color:"black"}} >
+        <div className="homeContainer">
+          <div className="homeTitle">
+            <p className="homeIntro">Welcome to</p>
+            <p className="myBandTitle">MyBand</p>
+            <h2>A place dedicated to musicians who are looking for other musicians to talk with, jam out with, find local shows, or book events. </h2>
+          </div>
+          <div className="loginContainer">
+            <LoginPage loginUser={props.loginUser} />
+          </div>
+        </div>
+        <img className="homeImage" src={bandPlaying}/>
+      </div>
     </div>
   );
 }

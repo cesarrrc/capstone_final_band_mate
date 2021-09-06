@@ -3,10 +3,59 @@
 }
 
 .App-logo {
-  height: 40vmin;
   pointer-events: none;
+  border-radius: 50%;
+  width: 150px;
+  justify-content: center;
+  margin: auto;
+  padding-bottom: -40px;
+
 }
 
+.headerTitle {
+  font-family: 'Montserrat', sans-serif;
+  margin: auto;
+}
+
+.homeContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-family: 'Montserrat', sans-serif;
+  
+}
+
+.homeImage {
+  margin: auto;
+  width: 100vw 
+}
+
+.homeTitle {
+  margin: auto;
+  width: 350px;
+}
+
+.homeIntro {
+  font-size: 50px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+
+.myBandTitle {
+  font-family: 'Monoton', cursive;
+  margin: auto;
+  font-size: 70px;
+  text-align: center;
+
+}
+
+@media only screen and (max-width: 800px) {
+  .homeContainer {
+    display: flex;
+    flex-direction: column;
+  }
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

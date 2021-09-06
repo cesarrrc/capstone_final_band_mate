@@ -11,7 +11,7 @@ import TextField from "@material-ui/core/TextField";
 const useStyles = makeStyles({
   root: {
     margin: "40px auto 40px auto",
-    width: 400,
+    width: "375px",
     textAlign: "center"
   },
   title: {
@@ -54,7 +54,7 @@ const LoginPage = (props) => {
 
   return (
     <div>
-      <Card className={classes.root} style={{maxWidth: "375px"}}> 
+      <Card className={classes.root} style={{maxWidth: "300px"}}> 
         <CardContent>
           <Typography className={classes.title} variant="h6">
             Sign in to MyBandMate
