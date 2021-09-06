@@ -7,7 +7,7 @@ const useStyles = makeStyles({
   paper: {
     margin: "40px auto 40px auto",
     padding: 50,
-    width: 650,
+    maxWidth: 400,
   },
   title: {
     marginBottom: 8,
@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   },
   button: {
     margin: "auto 20px auto 20px",
-    width: "100px"
+    width: "auto"
   },
   select: {
     display: "flex",
@@ -36,7 +36,7 @@ const AddInstrumentPage = (props) => {
   
   let history = useHistory();
 
-  const [instrument, setInstrument] = useState({ user_id: "", instrument_id: ""});
+  const [instrument, setInstrument] = useState({ instrument_id: ""});
 
 
   function handleInputChanges(event) {
@@ -62,14 +62,6 @@ const AddInstrumentPage = (props) => {
         What instrument do you play?
       </Typography>
       <form onSubmit={handleFormSubmit}>
-        <TextField
-          required
-          className={classes.textField}
-          name="user_id"
-          label="User ID"
-          variant="outlined"
-          onChange={handleInputChanges}
-        />
 
         <TextField
               required

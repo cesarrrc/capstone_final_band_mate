@@ -4,6 +4,10 @@ export async function handleResponse(response) {
     const error = await response.text();
     throw new Error(error);
   }
+  if (response.status === 500) {
+    const error = await response.text();
+    throw new Error(error);
+  }
   throw new Error("Network response was not ok.")
 }
 
@@ -14,12 +18,12 @@ export function handleError(error) {
 
 export function storeTokenOnLocalStorage(response) {
   localStorage.setItem("token", response.accessToken);
-
-
-
+  localStorage.setItem("id", response.id);
+  localStorage.setItem("username", response.userName)
+  localStorage.setItem("loggedIn", true)
  delete response.accessToken;
 
-  return response; //--> {userName}
+  return response;
 }
 
 export function getHeaders() {

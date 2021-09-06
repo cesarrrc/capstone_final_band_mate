@@ -6,6 +6,4 @@ import post from "./postReducer"
 import users from "./userReducer"
 import user from "./userReducer"
 
-import reply from "./replyReducer"
-
-export default combineReducers({ posts, post, users, user, reply })
+export default combineReducers({ posts, post, users, user })

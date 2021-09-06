@@ -27,7 +27,7 @@ export function createUser(user) {
 export function addInstrument(instrument) {
   return fetch(`${url}/addInstrument`, {
     method: "POST",
-    headers: { "content-type": "application/json" },
+    headers: getHeaders(),
     body: JSON.stringify(instrument)
   })
   .then(handleResponse)
@@ -37,7 +37,7 @@ export function addInstrument(instrument) {
 export function addGenre(genre) {
   return fetch(`${url}/addGenre`, {
     method: "POST",
-    headers: { "content-type": "application/json" },
+    headers: getHeaders(),
     body: JSON.stringify(genre)
   })
   .then(handleResponse)

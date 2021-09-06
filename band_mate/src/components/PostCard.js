@@ -19,7 +19,7 @@ import AddReply from './AddReply';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    maxWidth: 400,
   },
   media: {
     height: 0,
@@ -62,10 +62,10 @@ function PostsCard(props) {
   }
 
   return (
-    <Box style={{ margin:"auto", height:"auto" }} bgcolor="#212121" color="#212121" p={2}>
+    <div style={{borderBottom: "10px #212121 solid"}}>
       
-        <Paper key={post_id} p={2} style={{ maxWidth: '400pt', justifyContent: "center", margin:"20px auto 20px auto" }}>
-            <Box bgcolor="#b9f6ca" color="#212121" p={2}>
+        <Paper key={post_id} style={{ maxWidth: '400pt', justifyContent: "center", margin:"auto" }}>
+            <div style={{backgroundColor:"#b9f6ca", color:"212121", padding:"auto 10px auto 10px"}}>
             
               <Grid container wrap="nowrap" spacing={2}>
                 <Grid item>
@@ -94,7 +94,7 @@ function PostsCard(props) {
                   </Box>
                 </Grid>
               </Grid>
-            </Box>
+            </div>
 
           <CardActions>
             <IconButton aria-label="add to favorites">
@@ -107,8 +107,9 @@ function PostsCard(props) {
 
             <div style={{margin:"auto"}}>
               <AddReply
+
                 fullWidth
-                id={post_id} 
+                post_id={post_id} 
               />  
             </div>
 
@@ -129,11 +130,11 @@ function PostsCard(props) {
       
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              <RepliesCard id={post_id}/>
+              <RepliesCard post_id={post_id} props={props}/>
             </CardContent>
           </Collapse>
         </Paper>
-    </Box>
+    </div>
   );
 }
 

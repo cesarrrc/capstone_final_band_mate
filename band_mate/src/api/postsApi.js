@@ -1,6 +1,5 @@
 import { handleResponse, handleError, getHeaders  } from "./apiUtils";
 
-
 const postsUrl = "https://band-mate-app.herokuapp.com/posts"
 
 export function getPosts() {

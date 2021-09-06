@@ -7,7 +7,7 @@ const useStyles = makeStyles({
   paper: {
     margin: "40px auto 40px auto",
     padding: 50,
-    width: 650,
+    maxWidth: 400,
   },
   title: {
     marginBottom: 8,
@@ -36,8 +36,10 @@ const AddGenrePage = (props) => {
   
   let history = useHistory();
 
-  const [genre, setGenre] = useState({ user_id: "", genre_id: ""});
-
+  const [genre, setGenre] = useState({ genre_id: "1"});
+  const [error, setError] = useState("");
+  const [response, setResponse] = useState("")
+  const [added, setAdded] = useState("")
 
   function handleInputChanges(event) {
     const { name, value } = event.target;
@@ -53,23 +55,17 @@ const AddGenrePage = (props) => {
 
     props
       .createGenre(genre)
-      .then(() => history.push("/add-genre"))
+      .then(response => setResponse(response.genre))
+      .then(setGenre({ genre_id: "1"}))
+      .catch((error) => setError(error.message));
   }
-
   return (
     <Paper className={classes.paper}>
+      {console.log(added)}
       <Typography className={classes.title} variant="h5">
         What genres do you typically play?
       </Typography>
       <form onSubmit={handleFormSubmit}>
-        <TextField
-          required
-          className={classes.textField}
-          name="user_id"
-          label="User ID"
-          variant="outlined"
-          onChange={handleInputChanges}
-        />
 
         <TextField
               required
@@ -88,14 +84,14 @@ const AddGenrePage = (props) => {
               ))}
         </TextField>
 
+
         <div style={
-        {
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center"
+          {
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center"
           }
         }>
-
           <Button
             required
             className={classes.button}
@@ -116,6 +112,7 @@ const AddGenrePage = (props) => {
           </Button>
         </div>
       </form>
+      <div style={{margin:"auto", display:"flex", justifyContent:"center"}}>{response}</div>
     </Paper>
   );
 }

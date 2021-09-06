@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import '../App.css';
 import PostsCard from './PostCard';
 import logo from '../logo.svg';
+import AddPostPage from '../containers/AddPostPage'
 
 function PostsPage(props) {
   
@@ -20,6 +21,8 @@ function PostsPage(props) {
 
   return(
     <div>
+      <AddPostPage />
+
       {props.posts.map((post) => {
         return (
           <PostsCard 

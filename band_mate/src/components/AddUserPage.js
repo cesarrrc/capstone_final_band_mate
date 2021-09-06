@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   paper: {
     margin: "40px auto 40px auto",
     padding: 50,
-    width: 650,
+    maxWidth: 400,
   },
   title: {
     marginBottom: 8,

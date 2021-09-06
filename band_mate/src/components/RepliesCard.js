@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 const RepliesCard = (props) => {
 
-  const {id} = props;
+  const {post_id} = props;
   const [replies, setReplies] = useState(null)
 
   useEffect(() => {
@@ -15,14 +15,15 @@ const RepliesCard = (props) => {
       .then(data => {
         setReplies(data)
       })
+      console.log(replies)
   }, [])
   console.log(replies)
   return (
     <div>
       {replies && 
-      replies.filter((reply) => reply.post_id === props.id)
+      replies.filter((reply) => reply.post_id === props.post_id)
       .map(reply => 
-        <div>
+        <div key={replies.reply_id}>
           <h1>{reply.user_name}</h1>
           <h2>{reply.reply_title}</h2>
           <p>{reply.reply_detail}</p>

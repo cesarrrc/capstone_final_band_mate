@@ -23,7 +23,7 @@ function UsersPage(props) {
 
 
   return (
-    <Box style={{ margin:"auto", height:"auto" }} bgcolor="#212121" color="#212121" p={2}>
+    <div style={{ margin:"auto", height:"auto", maxWidth: "400pt"}}>
       {console.log(props.users)}
       {props.users.map((user, index) => (
         <Paper key={index} p={2} style={{ maxWidth: '400pt', justifyContent: "center", margin:"20px auto 20px auto" }}>
@@ -34,7 +34,7 @@ function UsersPage(props) {
                   <Avatar src={imgLink} />
                 </Grid>
 
-                <Grid item xs zeroMinWidth>
+                <Grid item xs>
                   <h1 style={{ margin: 0, textAlign: "left" }}>{user.user_name}</h1>
                   <Chip style={{backgroundColor: "#dce775"}} label={`${user.first_name} ${user.last_name}`} />
                   <Chip style={{backgroundColor: "#dce775"}} label={`Location: ${user.user_city}, ${user.user_state}`} />
@@ -56,7 +56,7 @@ function UsersPage(props) {
 
 
      
-    </Box>
+    </div>
   );
 }
 

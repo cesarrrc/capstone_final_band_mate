@@ -1,49 +1,142 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import { useHistory } from "react-router";
+import logo from '../images/logo.png'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-}));
+function Header(props) {
+  const history = useHistory()
+  const [anchorEl, setAnchorEl] = useState(null);
 
-function Header() {
-  const classes = useStyles();
+  let loggedIn = localStorage.getItem("loggedIn")
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
+    <div>
+      <div 
+        style={{
+          backgroundColor:"#F3EFE0", 
+          width:"auto", 
+          height:"80px",
+          display:"grid",
+          gridTemplateColumns:"1fr 1fr 1fr",
+          margin:"auto",
+          marginBottom:"40px",
+        }}>
 
-          <AppBar position="static" color="#e0e0e0">
-            <Toolbar>
+        <div
+          style={{
+            display: "flex",
+            height:"80px",
+            maxWidth:"210px"
+          }}
+        >
+          <IconButton 
+            aria-controls="simple-menu" 
+            aria-haspopup="true" 
+            onClick={handleClick} 
+            color="inherit" 
+            aria-label="menu"
+            style={{
               
-              <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                <MenuIcon />
-              </IconButton>
-              
-              <Typography variant="h6" className={classes.title}>
-                BandMate
-              </Typography>
-              <Button color="inherit" component={Link} to={"/"}>Home</Button>
-              <Button color="inherit" component={Link} to={"/posts"}>View all Posts</Button>
-              <Button color="inherit" component={Link} to={"/add-post"}>Add a Post</Button>
-              <Button color="inherit" component={Link} to={"/users"}>View all Users</Button>
+            }}
+            >
+              <MenuIcon style={{fontSize:"35px"}} />
+          </IconButton>
+          <Menu
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+            >
+            <MenuItem component={Link} to={"/"} onClick={handleClose}>Home</MenuItem>
+            <MenuItem component={Link} to={"/posts"} onClick={handleClose}>View Posts</MenuItem>
+            <MenuItem component={Link} to={"/users"} onClick={handleClose}>View Users</MenuItem>
+            <MenuItem component={Link} to={"/add-post"} onClick={handleClose}>Add a Post</MenuItem>
+            <MenuItem component={Link} to={"/add-user"} onClick={handleClose}>Register</MenuItem>
+            <MenuItem component={Link} to={"/add-user"} onClick={handleClose}>Register</MenuItem>
+            <MenuItem component={Link} to={"/about-us"} onClick={handleClose}>Register</MenuItem>
+            <MenuItem component={Link} to={"/contact-us"} onClick={handleClose}>Register</MenuItem>
+            <MenuItem component={Link} to={"/login"} onClick={handleClose}>Login</MenuItem>
+            <MenuItem component={Link} to={"/logout"} onClick={handleClose}>Login</MenuItem>
+
+
+          </Menu>
+
+          <Typography variant="h6" 
+            style={{
+              margin: "auto",
+            }}
+          >
+              MyBandMate
+          </Typography>
+        </div>
+
+        <div>
+          <img src={logo} alt="Italian Trulli" 
+            style={{
+              maxWidth: "100px",
+              margin:"10px auto auto auto",
+              display:"flex",
+              justifyContent:"center"
+            }} 
+          />
+        </div>
+
+          {!loggedIn && 
+            <div           
+              style={{
+                display:"flex",
+                height:"80px",
+                width: "auto",
+                flexDirection:"column",
+                alignItems:"flex-end",
+                margin:"0 auto 0 auto",
+                padding:"0"
+              }}
+            >
               <Button color="inherit" component={Link} to={"/login"}>Login</Button>
               <Button color="inherit" component={Link} to={"/add-user"}>Register</Button>
+            
+            </div>
+          }
+          
+          {loggedIn && 
+            <div
+              style={{
+                display:"flex",
+                height:"80px",
+                justifyContent:"flex-end",
+              }}
+            >
+              <Button color="inherit" component={Link} to={"/login"} 
+               onClick={() => {
+                  localStorage.clear()
+                  history.push('/login')
+                  window.location.reload(false)
+                }}
+              >
+                Logout
+              </Button>
+             </div>
 
-            </Toolbar>
-          </AppBar>
-         
+          }
+      </div>  
+
+   </div>
   );
 }
 
