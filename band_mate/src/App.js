@@ -10,8 +10,10 @@ import LoginPage from "./containers/LoginPage";
 import AddInstrumentPage from "./containers/AddInstrumentPage";
 import AddGenrePage from "./containers/AddGenrePage";
 import Home from './containers/HomePage'
-
+import MyPostsPage from "./containers/MyPostsPage";
 import Header from './components/Header'
+import DashBoardPage from './components/DashBoardPage'
+import MyRepliesPage from "./containers/MyRepliesPage";
 
 function App() {
   return (
@@ -58,7 +60,23 @@ function App() {
               <Header />
               <AddGenrePage />
             </Route>
+
+            <Route path="/dashboard">
+              <Header />
+              <DashBoardPage />
+            </Route>
             
+            <Route exact path="/my-posts">
+              <Header />
+              <MyPostsPage />
+            </Route>
+            
+            <Route exact path="/my-replies">
+              <Header />
+              <MyRepliesPage />
+            </Route>
+
+
           </Switch>
           
       </Router>

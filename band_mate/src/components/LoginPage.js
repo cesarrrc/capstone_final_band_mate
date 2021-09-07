@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
@@ -33,6 +34,7 @@ const LoginPage = (props) => {
   const [loggedIn, setLoggedIn] = useState({ loggedIn: null })
   const [user, setUser] = useState({ user_name: "", password: "" });
   const [error, setError] = useState("");
+  const [signingIn, setSigningIn] = useState(false);
 
   function handleInputChanges(e) {
     const { name, value } = e.target;
@@ -45,9 +47,11 @@ const LoginPage = (props) => {
 
   function handleFormSubmit(e) {
     e.preventDefault();
+    setSigningIn(true)
+    console.log("button clicked", {signingIn})
     props
       .loginUser(user)
-      .then(() => history.push("/posts"))
+      .then(() => history.push("/dashboard"))
       .then(setLoggedIn(true))
       .catch((error) => setError(error.message));
   }
@@ -56,9 +60,9 @@ const LoginPage = (props) => {
     <div>
       <Card className={classes.root} style={{maxWidth: "300px"}}> 
         <CardContent>
-          <Typography className={classes.title} variant="h6">
-            Sign in to MyBandMate
-          </Typography>
+          <p style={{fontSize:"20px"}}>
+            Login
+          </p>
           <div>{error}</div>
           <form onSubmit={handleFormSubmit}>
             <TextField
@@ -84,19 +88,31 @@ const LoginPage = (props) => {
             />
             <div>
               <Button
+                fullWidth
                 type="submit"
                 className={classes.button}
                 variant="contained"
-                color="primary"
+                style={{
+                  backgroundColor:"#b9f6ca"
+                }}
+                
               >
-                Sign in
-              </Button>
-              <Button variant="outlined" color="primary">
-                Cancel
+                {signingIn && "Logging In"}
+                {!signingIn && "Login"}
               </Button>
             </div>
           </form>
         </CardContent>
+        <div>
+          <p> Need an Account? 
+            <Button style={{
+                      marginLeft:"8px"
+                    }} 
+                component={Link} to={"/add-user"} variant="contained" color="primary">
+              Sign up now!
+            </Button>
+          </p>
+        </div>
       </Card>
     </div>
   );

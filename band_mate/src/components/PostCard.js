@@ -4,8 +4,8 @@ import {  Avatar, Grid, Paper, Box, CardActions, CardContent, Collapse, TextFiel
 import Chip from '@material-ui/core/Chip';
 import moment from 'moment'
 import clsx from 'clsx';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import IconButton from '@material-ui/core/IconButton';
 import { red } from '@material-ui/core/colors';
@@ -45,7 +45,8 @@ function PostsCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
   const { post_id, user_id, user_name, post_type, instrument, genre, post_title, post_detail, created_on} = props
-  
+  let id = localStorage.getItem("id")
+
   const handleExpandClick = (e) => {
     setExpanded(!expanded);
     console.log(e)
@@ -97,13 +98,18 @@ function PostsCard(props) {
             </div>
 
           <CardActions>
-            <IconButton aria-label="add to favorites">
-              <FavoriteIcon />
-            </IconButton>
-            
-            <IconButton aria-label="share">
-              <ShareIcon />
-            </IconButton>
+          {id == user_id &&
+
+            <div>
+                <IconButton fontSize="small" aria-label="edit">
+                  <EditIcon />
+                </IconButton>
+                
+                <IconButton aria-label="delete">
+                  <DeleteIcon fontSize="small"/>
+                </IconButton>
+            </div>
+          }
 
             <div style={{margin:"auto"}}>
               <AddReply

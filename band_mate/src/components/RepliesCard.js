@@ -15,7 +15,6 @@ const RepliesCard = (props) => {
       .then(data => {
         setReplies(data)
       })
-      console.log(replies)
   }, [])
   console.log(replies)
   return (

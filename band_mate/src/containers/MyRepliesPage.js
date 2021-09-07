@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
-import PostsPage from "../components/PostsPage"
-import MyPostsPage from "../components/MyPostsPage";
+import MyRepliesPage from "../components/MyRepliesPage";
 import { loadPosts } from "../redux/actions/postAction"
 
 
@@ -16,4 +15,4 @@ const dispatchStateToProps = {
   loadPosts
 }
 
-export default connect(mapStateToProps, dispatchStateToProps)(PostsPage, MyPostsPage)
+export default connect(mapStateToProps, dispatchStateToProps)(MyRepliesPage)

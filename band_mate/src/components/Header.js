@@ -62,19 +62,33 @@ function Header(props) {
             keepMounted
             open={Boolean(anchorEl)}
             onClose={handleClose}
-            >
-            <MenuItem component={Link} to={"/"} onClick={handleClose}>Home</MenuItem>
-            <MenuItem component={Link} to={"/posts"} onClick={handleClose}>View Posts</MenuItem>
-            <MenuItem component={Link} to={"/users"} onClick={handleClose}>View Users</MenuItem>
-            <MenuItem component={Link} to={"/add-post"} onClick={handleClose}>Add a Post</MenuItem>
-            <MenuItem component={Link} to={"/add-user"} onClick={handleClose}>Register</MenuItem>
-            <MenuItem component={Link} to={"/add-user"} onClick={handleClose}>Register</MenuItem>
-            <MenuItem component={Link} to={"/about-us"} onClick={handleClose}>Register</MenuItem>
-            <MenuItem component={Link} to={"/contact-us"} onClick={handleClose}>Register</MenuItem>
-            <MenuItem component={Link} to={"/login"} onClick={handleClose}>Login</MenuItem>
-            <MenuItem component={Link} to={"/logout"} onClick={handleClose}>Login</MenuItem>
+          >
 
+          {loggedIn && 
+            <div>
+              <MenuItem component={Link} to={"/Dashboard"} onClick={handleClose}>Dashboard</MenuItem>
+              <MenuItem component={Link} to={"/posts"} onClick={handleClose}>View Posts</MenuItem>
+              <MenuItem component={Link} to={"/users"} onClick={handleClose}>View Users</MenuItem>
+              <MenuItem component={Link} to={"/add-post"} onClick={handleClose}>Add a Post</MenuItem>
+              <MenuItem component={Link} to={"/my-profile"} onClick={handleClose}>View my Profile</MenuItem>
+              <MenuItem component={Link} to={"/my-posts"} onClick={handleClose}>View My Posts</MenuItem>
+              <MenuItem component={Link} to={"/my-replies"} onClick={handleClose}>View my Replies</MenuItem>
+              <MenuItem component={Link} to={"/about"} onClick={handleClose}>About Us</MenuItem>
+              <MenuItem component={Link} to={"/contact"}  onClick={handleClose}>Contact Us</MenuItem>
+              <MenuItem component={Link} to={"/logout"} style={{backgroundColor:"#F97068"}} onClick={handleClose}>Logout</MenuItem>
 
+            </div>
+          }
+
+          {!loggedIn && 
+            <div>
+              <MenuItem component={Link} to={"/"} onClick={handleClose}>Home</MenuItem>
+              <MenuItem component={Link} to={"/login"} onClick={handleClose}>Login</MenuItem>
+              <MenuItem component={Link} to={"/add-user"} onClick={handleClose}>Register</MenuItem>
+              <MenuItem component={Link} to={"/posts"} onClick={handleClose}>View Posts</MenuItem>
+            </div>
+          }
+          
           </Menu>
 
           <p className="headerTitle">
@@ -82,31 +96,26 @@ function Header(props) {
           </p>
         </div>
 
-        <div>
-          <img src={logo} alt="Italian Trulli" 
-            style={{
-              maxWidth: "100px",
-              margin:"10px auto auto auto",
-              display:"flex",
-              justifyContent:"center"
-            }} 
-          />
+        <div component={Link} to={"/"}>
+          <Link to={"/"} >
+
+            <img src={logo}  alt="Italian Trulli" 
+              style={{
+                maxWidth: "100px",
+                margin:"auto",
+                display:"flex",
+                justifyContent:"center"
+              }} 
+              />
+            </Link>
         </div>
 
           {!loggedIn && 
-            <div           
-              style={{
-                display:"flex",
-                height:"80px",
-                width: "auto",
-                flexDirection:"column",
-                alignItems:"flex-end",
-                margin:"0",
-                padding:"0"
-              }}
-            >
-              <Button stlye={{padding:"0"}} color="inherit" component={Link} to={"/login"}>Login</Button>
-              <Button stlye={{padding:"0"}} color="inherit" component={Link} to={"/add-user"}>Register</Button>
+            <div >
+              <div className="loginButtoncontainer">
+                <Button color="inherit" component={Link} to={"/login"}>Login</Button>
+                <Button color="inherit" component={Link} to={"/add-user"}>Register</Button>
+              </div>
             
             </div>
           }
@@ -120,11 +129,9 @@ function Header(props) {
                 padding: "0"
               }}
             >
-              <Button stlye={{padding:"0"}} color="inherit" component={Link} to={"/login"} 
+              <Button stlye={{padding:"0"}} color="inherit" component={Link} to={"/"} 
                onClick={() => {
                   localStorage.clear()
-                  history.push('/login')
-                  window.location.reload(false)
                 }}
               >
                 Logout

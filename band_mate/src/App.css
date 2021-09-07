@@ -12,32 +12,47 @@
 
 }
 
+.loginButtoncontainer {
+  display: flex;
+  height: 80px;
+  flex-direction: row;
+  margin: auto;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .headerTitle {
   font-family: 'Montserrat', sans-serif;
   margin: auto;
+}
+
+.homeBody {
+  display: grid;
+  justify-items: center;
 }
 
 .homeContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   font-family: 'Montserrat', sans-serif;
-  
+  width: 80vw;
+  justify-items: center;  
 }
 
 .homeImage {
   margin: auto;
-  width: 100vw 
+  width: 60vw 
 }
 
 .homeTitle {
   margin: auto;
-  width: 350px;
+  width: auto;
 }
 
 .homeIntro {
-  font-size: 50px;
+  font-size: 30px;
   text-align: center;
-  margin-top: 40px;
+  margin-top: 50px;
   margin-bottom: 0;
 }
 
@@ -45,15 +60,66 @@
 .myBandTitle {
   font-family: 'Monoton', cursive;
   margin: auto;
-  font-size: 70px;
+  font-size: 100px;
   text-align: center;
+}
+
+.dashContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 10px;
+  margin: 40px;
+}
+
+.dashItem {
+  display: flex;
+  justify-content: center;
+}
+
+.myPostsTitle {
+  text-align: center;
+  margin: auto auto 30px auto;
+  color: white;
+  font-size: 50px;
+  font-family: 'Montserrat', sans-serif;
+
 
 }
 
 @media only screen and (max-width: 800px) {
+
+  .loginButtoncontainer {
+    flex-direction: column;
+    margin: auto;
+    justify-content: flex-end;
+  }
+  
   .homeContainer {
     display: flex;
     flex-direction: column;
+  } 
+
+  .homeImage {
+    width: 90vw 
+  }
+
+  .homeIntro {
+    font-size:20px;
+  }
+
+  .myBandTitle {
+    font-family: 'Monoton', cursive;
+    margin: auto;
+    font-size: 50px;
+    text-align: center;
+  }
+  
+  .dashContainer {
+    display: grid;
+    grid-template-columns: none;
+    grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 10px;
+    margin: 30px;
   }
 }
 @media (prefers-reduced-motion: no-preference) {
