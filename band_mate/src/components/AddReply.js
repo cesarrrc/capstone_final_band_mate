@@ -22,15 +22,13 @@ function AddReply(props) {
   
   function handleFormSubmit(event) {
     event.preventDefault()
-    console.log(reply)
     fetch("https://band-mate-app.herokuapp.com/replies", {
       method: "POST",
       headers: getHeaders(),
       body: JSON.stringify(reply)
     })
     .then(handleResponse)
-    .then(reply => setReply({reply_detail: ""}))
-    .then(response => {console.log(response)})
+    .then(reply => setReply({post_id: props.post_id, reply_title: "title?", reply_detail: ""}))
     .catch((error) => setError(error.message));
   }
   

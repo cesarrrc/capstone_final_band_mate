@@ -4,6 +4,7 @@ export async function handleResponse(response) {
     const error = await response.text();
     throw new Error(error);
   }
+  
   if (response.status === 500) {
     const error = await response.text();
     throw new Error(error);

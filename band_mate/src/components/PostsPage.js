@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import '../App.css';
 import PostsCard from './PostCard';
 import iconSquare from '../images/iconSquare.png';
+import logo from '../logo.svg';
 
 import AddPostPage from '../containers/AddPostPage'
 
@@ -12,14 +13,12 @@ function PostsPage(props) {
       props.loadPosts();   
   }, [props.location]);
 
-  if (props.posts.length <= 0) {
-    return (
-    <div style={{margin: "100px auto auto auto", paddingLeft:"40px", width:"200px"}}>
-      <img src={iconSquare} className="App-logo" alt="logo" />
-      <h1 style={{margin: "auto"}}> loading...</h1>
-    </div>)
+  if (props.length <= 0) {
+    return <div style={{margin: "auto", display: "flex", flexDirection:"column"}}>
+      <img src={logo} className="App-logo" alt="logo" />
+      <h1 style={{margin: "auto"}}>loading...</h1>
+    </div>
   }
-
 
   return(
     <div>
