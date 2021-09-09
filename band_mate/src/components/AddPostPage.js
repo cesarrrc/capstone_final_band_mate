@@ -31,7 +31,7 @@ function AddPostPage(props) {
   const classes = useStyles();
   let history = useHistory();
   
-  const [post, setPost] = useState({ instrument_id: "1", genre_id: "1", post_type: "", post_title: "", post_detail: "" });
+  const [post, setPost] = useState({ instrument_id: "1", genre_id: "11", post_type: "5", post_title: "", post_detail: "" });
 
   function handleInputChanges(event) {
     const { name, value } = event.target;
@@ -65,12 +65,7 @@ function AddPostPage(props) {
   
           <form onSubmit={handleFormSubmit}>
 
-           <div style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-around",
-                marginBottom: "20px",
-              }}>
+           <div className="addPost">
             
               <TextField
                 required

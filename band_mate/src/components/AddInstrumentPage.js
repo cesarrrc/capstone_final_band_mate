@@ -35,8 +35,10 @@ const AddInstrumentPage = (props) => {
   const classes = useStyles();
   
   let history = useHistory();
-
-  const [instrument, setInstrument] = useState({ instrument_id: ""});
+  const [error, setError] = useState("");
+  const [response, setResponse] = useState("")
+  const [added, setAdded] = useState(false)
+  const [instrument, setInstrument] = useState({ instrument_id: "1"});
 
 
   function handleInputChanges(event) {
@@ -50,10 +52,16 @@ const AddInstrumentPage = (props) => {
 
   function handleFormSubmit(e) {
     e.preventDefault();
+    setAdded(true)
+    setResponse(false)
 
     props
       .createInstrument(instrument)
+      .then(response => setResponse(response.instrument))
+      .then(() => setInstrument({ genre_id: "1"}))
+      .then(() => setAdded(false))
       .then(() => history.push("/add-instrument"))
+      .catch((error) => setError(error.message));
   }
 
   return (
@@ -79,6 +87,9 @@ const AddInstrumentPage = (props) => {
                 </MenuItem>
               ))}
         </TextField>
+        
+        <div className="response">{response}</div>
+        <div className="error">{error}</div>
 
         <div style={
         {
@@ -91,11 +102,11 @@ const AddInstrumentPage = (props) => {
           <Button
             required
             className={classes.button}
-            variant="outlined"
+            variant="contained"
             color="primary"
             type="submit"
           >
-              Add
+              {added && "Adding"} {!added && "Add" }
           </Button>
           
           <Button 
@@ -104,7 +115,7 @@ const AddInstrumentPage = (props) => {
             color="secondary"
             component={Link} to={"/add-genre"}
             >
-            Add Genres
+            Go to Genres
           </Button>
         </div>
       </form>

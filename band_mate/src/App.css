@@ -82,8 +82,37 @@
   color: white;
   font-size: 50px;
   font-family: 'Montserrat', sans-serif;
+}
 
+.response {
+  background-color: #b9f6ca;
+  width: 60%;
+  margin: auto auto 20px auto;
+  text-align: center;
+}
 
+.error {
+  background-color: #F97068;
+  width: 60%;
+  margin: auto auto 20px auto;
+  text-align: center;
+}
+
+.loadingLogo{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: auto auto auto auto;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.addPost{
+  display: flex;
+  flex: row;
+  margin: auto;
+  justify-content: space-around;
 }
 
 @media only screen and (max-width: 800px) {
@@ -120,6 +149,11 @@
     grid-template-rows: 1fr 1fr 1fr;
     row-gap: 10px;
     margin: 30px;
+  }
+
+  .addPost {
+    flex-direction: column;
+    width: 250px;
   }
 }
 @media (prefers-reduced-motion: no-preference) {

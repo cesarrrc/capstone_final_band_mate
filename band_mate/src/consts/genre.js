@@ -1,43 +1,86 @@
-export default [
-  {
-    id:1,
-    name: "None"
-  },
-  {
-    id:2,
-    name: "Rock"
-  },
-  {
-    id:3,
-    name: "Indie"
-  },
-  {
-    id:4,
-    name: "Punk"
-  },
-  {
-    id:5,
-    name: "Country"
-  },
-  {
-    id:6,
-    name: "Alternative"
-  },
-  {
-    id:7,
-    name: "Hip-Hop"
-  },
-  {
-    id:8,
-    name: "R&B"
-  },
-  {
-    id:9,
-    name: "Metal"
-  },
-  {
-    id:10,
-    name: "New Wave"
-  }
+export default 
+[
+    {id:11, name:"None"},
+    {id:21, name:"2-step"},
+    {id:6, name:"Alternative"},
+    {id:29, name:"Ambient"},
+    {id:30, name:"Bluegrass"},
+    {id:25, name:"Blues"},
+    {id:34, name:"Chillwave"},
+    {id:33, name:"Christian Metal"},
+    {id:32, name:"Christian Rock"},
+    {id:37, name:"Classic Rock"},
+    {id:36, name:"Classical"},
+    {id:38, name:"Club"},
+    {id:26, name:"Comedy"},
+    {id:15, name:"Country"},
+    {id:40, name:"Cumbia"},
+    {id:27, name:"Dance"},
+    {id:42, name:"Dark Wave"},
+    {id:41, name:"Death Metal"},
+    {id:88, name:"Disco"},
+    {id:43, name:"Drum & Bass"},
+    {id:71, name:"DubStep"},
+    {id:47, name:"Electronic"},
+    {id:48, name:"ElectroPop"},
+    {id:49, name:"Experimental"},
+    {id:50, name:"Folk"},
+    {id:46, name:"Funk"},
+    {id:51, name:"G-Funk"},
+    {id:54, name:"Garage Punk"},
+    {id:53, name:"Garage Rock"},
+    {id:55, name:"Glam Metal"},
+    {id:56, name:"Glam Punk"},
+    {id:57, name:"Glam Rock"},
+    {id:31, name:"Gospel"},
+    {id:58, name:"Gothic"},
+    {id:59, name:"GrindCore"},
+    {id:60, name:"Gypsy Jazz"},
+    {id:72, name:"Hardcore"},
+    {id:61, name:"Heavy Metal"},
+    {id:62, name:"Heavy Rock"},
+    {id:7, name:"Hip-Hop"},
+    {id:63, name:"Horror Core"},
+    {id:64, name:"Horror Punk"},
+    {id:22, name:"House"},
+    {id:65, name:"HyperPop"},
+    {id:3, name:"Indie"},
+    {id:13, name:"Indie"},
+    {id:66, name:"Industrial"},
+    {id:67, name:"Instrumental"},
+    {id:35, name:"Jazz"},
+    {id:69, name:"Latin"},
+    {id:68, name:"Latin Rock"},
+    {id:70, name:"Lo-Fi"},
+    {id:9, name:"Metal"},
+    {id:20, name:"New Wave"},
+    {id:75, name:"Noisecore"},
+    {id:76, name:"Norteño"},
+    {id:77, name:"Orchestral"},
+    {id:44, name:"Poetry"},
+    {id:78, name:"Polka"},
+    {id:28, name:"Pop"},
+    {id:80, name:"Pop Punk"},
+    {id:79, name:"Pop Rock"},
+    {id:83, name:"Post Hardcore"},
+    {id:81, name:"Post-Metal"},
+    {id:82, name:"Post-Punk"},
+    {id:84, name:"Psychedelic"},
+    {id:74, name:"PsychoBilly"},
+    {id:4, name:"Punk"},
+    {id:18, name:"R&B"},
+    {id:52, name:"Rap"},
+    {id:85, name:"Reggae"},
+    {id:2, name:"Rock"},
+    {id:12, name:"Rock"},
+    {id:86, name:"Rock Opera"},
+    {id:73, name:"RockaBilly"},
+    {id:87, name:"Ska"},
+    {id:39, name:"Soul"},
+    {id:45, name:"Swing"},
+    {id:89, name:"SynthWave"},
+    {id:23, name:"Techno"},
+    {id:90, name:"Tejano"},
+    {id:24, name:"Trance"},
+  ]
 
-]

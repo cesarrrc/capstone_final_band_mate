@@ -14,5 +14,9 @@ export default [
   {
     id:4,
     name: "Looking to book a Gig"
+  },
+  {
+    id:5,
+    name: "General"
   }
 ]

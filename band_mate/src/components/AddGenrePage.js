@@ -25,7 +25,7 @@ const useStyles = makeStyles({
   },
   select: {
     display: "flex",
-    margin: "auto auto 30px auto",
+    margin: "auto auto 10px auto",
     width: "150px"
   }
 });
@@ -36,10 +36,10 @@ const AddGenrePage = (props) => {
   
   let history = useHistory();
 
-  const [genre, setGenre] = useState({ genre_id: "1"});
+  const [genre, setGenre] = useState({ genre_id: "11"});
   const [error, setError] = useState("");
   const [response, setResponse] = useState("")
-  const [added, setAdded] = useState("")
+  const [added, setAdded] = useState(false)
 
   function handleInputChanges(event) {
     const { name, value } = event.target;
@@ -52,16 +52,19 @@ const AddGenrePage = (props) => {
 
   function handleFormSubmit(e) {
     e.preventDefault();
+    setAdded(true)
+    setResponse(false)
 
     props
       .createGenre(genre)
       .then(response => setResponse(response.genre))
-      .then(setGenre({ genre_id: "1"}))
+      .then(() => setGenre({ genre_id: "11"}))
+      .then(() => setAdded(false))
       .catch((error) => setError(error.message));
+      
   }
   return (
     <Paper className={classes.paper}>
-      {console.log(added)}
       <Typography className={classes.title} variant="h5">
         What genres do you typically play?
       </Typography>
@@ -84,6 +87,9 @@ const AddGenrePage = (props) => {
               ))}
         </TextField>
 
+        <div className="response">{response}</div>
+        <div className="error">{error}</div>
+
 
         <div style={
           {
@@ -95,11 +101,11 @@ const AddGenrePage = (props) => {
           <Button
             required
             className={classes.button}
-            variant="outlined"
+            variant="contained"
             color="primary"
             type="submit"
           >
-              Add
+              {added && "Adding"} {!added && "Add" }
           </Button>
           
           <Button 
@@ -112,7 +118,6 @@ const AddGenrePage = (props) => {
           </Button>
         </div>
       </form>
-      <div style={{margin:"auto", display:"flex", justifyContent:"center"}}>{response}</div>
     </Paper>
   );
 }

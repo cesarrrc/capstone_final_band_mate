@@ -19,6 +19,8 @@ const RepliesCard = (props) => {
   const [thisId, setThisId] = useState("")
   const [open, setOpen] = useState(false);
   const [replies, setReplies] = useState(null)
+  const [adding, setAdding] = useState(false);
+
   const handleClickOpen = (replyId) => {
     
     setOpen(true);
